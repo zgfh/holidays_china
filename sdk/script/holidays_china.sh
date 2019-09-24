@@ -69,7 +69,7 @@ do
   else
     flag="true"
   fi
-  result+="\"$d\": `check_day $d`"
+  result+="\"$d\":`check_day $d`"
 done
 result+="}"
 echo $result
