@@ -25,12 +25,16 @@
 
 #### script
 ```bash
-test -f holidays_china.sh || curl -o holidays_china.sh https://raw.githubusercontent.com/zgfh/holidays_china/master/sdk/script/holidays_china.sh 
-
-if [[ "$(bash holidays_china.sh|grep -E -o  ':[0-9]'  |grep -E -o  '[0-9]')" != "0" ]]  ;then
+curl -o holidays_china.sh https://raw.githubusercontent.com/zgfh/holidays_china/master/sdk/script/holidays_china.sh
+result=$(bash holidays_china.sh |grep -E -o  ':[0-9]'  |grep -E -o  '[0-9]')
+if [[ "$result" == "1" || "$result" == "2" ]]  ;then
 echo "holidays day"
+return
+elif [[ "$result" == "0" ]]  ;then
+echo "work days"
 else
 echo "normal days"
+# TODO check weekend
 fi
 ```
 
