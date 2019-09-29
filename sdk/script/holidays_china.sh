@@ -28,7 +28,7 @@ if cat data.json|grep "$d" 2>&1 >/dev/null ;then
 
 fi
 # TODO should check weekday
-echo 0
+echo 3
 }
 
 update_day(){
